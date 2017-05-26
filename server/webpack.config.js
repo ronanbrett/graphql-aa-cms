@@ -11,15 +11,15 @@ fs.readdirSync('node_modules')
 
 
 module.exports = {
-  entry: './app/index.ts',
+  entry: './app/app.controller.ts',
   output: {
     filename: 'app.js',
     path: __dirname + '/dist/',
-     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]',
   },
   externals: nodeModules,
- 
+
   module: {
     rules: [{
         enforce: 'pre',
@@ -30,6 +30,11 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'raw-loader'
       }
     ]
   },
