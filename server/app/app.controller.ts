@@ -6,7 +6,7 @@ import { schema } from './models/base/base.resolve';
 
 import env from './../environments/environment';
 
-import { TextField } from './models/fields/field.model';
+import { TextField, AutocompleteField } from './models/fields/field.model';
 
 const environment = env();
 
@@ -44,7 +44,9 @@ class Server {
       console.log('Example app listening on port 3000!');
     });
 
-    TextField.create({ key: 'hello' });
+    TextField.create({ key: 'hello' }).then((next) => {
+      AutocompleteField.create({ key: 'subKey', childFields: [next._id] });
+    })  ;
   }
 
   /**
