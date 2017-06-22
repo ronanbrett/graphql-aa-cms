@@ -1,0 +1,21 @@
+interface Field {
+	key: String!
+	type: String!
+	label: String!
+	required: Boolean!
+	helpId: Number
+	validators: [String!]
+	placeholder: String
+
+}
+
+type TextField implements Field {
+	key: String!
+	type: String!
+	label: String!
+	required: Boolean!
+	helpId: Number
+	validators: [String!]
+	placeholder: String
+	
+}

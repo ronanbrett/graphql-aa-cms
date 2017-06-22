@@ -1,7 +1,6 @@
 import * as mongoose from 'mongoose';
 import { buildSchema, GraphQLObjectType } from 'graphql';
 
-
 export const BaseFieldSchema = new mongoose.Schema({
     key: String,
     type: String,
